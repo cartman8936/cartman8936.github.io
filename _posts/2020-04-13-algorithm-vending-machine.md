@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "음료수 자판기"
-date:   2020-04-13T14:25:52-05:00
+title:  "반올림"
 author: cartman8936
 categories: Algorithm
 tags:	algorithm c++
@@ -9,11 +8,13 @@ cover:  "/assets/instacode.png"
 ---
 
 ### Question
-자판기에 투입한 금액과 음료수 값이 입력되면 거스름돈과 거스름돈으로 500원의 개수와 100원의 개수를 출력하는 프로그램을 작성하 세요. 자판기의 거스름돈은 500원과 100원만 으로 구성되며, 최소의 개수로 거슬러 주어야 한다.(기본단위는 100원입니다.)
+실수값을 입력받아 소수 2째 자리에서 반올 림하는 프로그램을 작성하세요. %0.1f 를 사용하면 안됩니다. 
+변수 선언을 double 형으로 해야하고, double a; scanf("%lf", &a)로 입력받는다. 
+double 형이 정확하게 나누기 연산을 해준다.
 
 ▣ 입력설명 
 
-첫 번째 줄에 자판기에 투입한 금액(10,000 원 이하)이 입력된다. 두 번째 줄에 음료수의 값이 입력된다.
+첫 번째 줄에 소수 둘째 자리에서 반올림한 값을 출력한다.
 
 ▣ 출력설명 
 
@@ -21,15 +22,16 @@ cover:  "/assets/instacode.png"
 
 ▣ 입출력예제 1
 
-3000 2300 / 700 1 2
+23.56 / 23.600000
 
 ▣ 입출력예제 2
 
-5000 2500 / 2500 5 0
+56.77 / 56.800000
+
 
 ▣ 입출력예제 3
 
-8000 5200 / 2800 5 3
+76.54 / 76.500000
 
 ### Solution
 
@@ -37,23 +39,21 @@ cover:  "/assets/instacode.png"
 #include<stdio.h>
 
 int main(){
-	int a, b;
-	scanf("%d %d", &a, &b);
-	int change = a - b;
-	int res = change;
-	int n500 = res / 500;
-	res = res - 500 * n500;
-	int n100 = res / 100;
+	double a;
+	scanf("%lf", &a);
+	a = a * 100;
+	int b = (int)a % 10;
+
+	if(b >= 5){
+		a =  a + (10 - b);  
+	} else {
+		a = a - b;
+	}
 	
-	printf("%d %d %d", change, n500, n100);
+	a = a / 100;
+	printf("%lf", a);
+	
 	return 0;
 }
-{% endhighlight %}
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help
-[highlight]:   https://highlightjs.org/
-[lightbox]:    http://lokeshdhakar.com/projects/lightbox2/
-[jekyll-archive]: https://github.com/jekyll/jekyll-archives
-[liquid]: https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
+{% endhighlight %}
