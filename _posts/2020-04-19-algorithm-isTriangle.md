@@ -41,18 +41,27 @@ cover:  "/assets/instacode.png"
 int main(){
     int a, b ,c;
     scanf("%d %d %d", &a, &b, &c);
-	int min;
-	if(a<b){
-		min = a;
-	}else{
-		min = b;
+	bool res;
+	int max;
+	if(a >= b){
+		max = a;
+		res = (a  < b + c);
+	} else {
+		max = b;
+		res = (b  < a  + c);
 	}
 	
-	if(c<min){
-		min = c;
+	if( c >= max){
+		max = c;
+		res = (c < a + b);
 	}
-		
-    printf("%d", min);
+
+	if(res){
+		printf("%s", "YES");
+	}else{
+		printf("%s", "NO");
+	}
+	
     return 0;
 }
 {% endhighlight %}
