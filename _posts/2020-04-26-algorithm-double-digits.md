@@ -58,20 +58,25 @@ B < A <10 인 자연수 A, B에 대하여 십의 자리수와 일의 자리수�
 ### Solution
 
 {% highlight cpp %}
-
 #include<stdio.h>
 
 int main(){
 	int a;
 	scanf("%d", &a);
 	
+	int cnt = 0;
 	for(int i = 1; i <= a; i++){
-		for(int j = 1; j <= a; j++){
-			if(i != j){
-				printf("%d%d\n", i, j);
-			}
+		int secondPos = i / 10;
+		int firstPos = i % 10;
+		
+		if(firstPos != 0 && firstPos < secondPos){
+			printf("%d\n",i);
+			cnt++;
 		}
 	}
+
+	printf("%d",cnt);
+	
 	return 0;
 }
 
