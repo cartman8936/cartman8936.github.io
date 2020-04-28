@@ -52,17 +52,29 @@ cover:  "/assets/instacode.png"
 #include<stdio.h>
 
 int main(){
-	int n;
-	scanf("%d", &n);
-	int arr[n];
 
-	for(int i=0; i<n; i++){
+	int arr[8];
+
+	for(int i=0; i<9; i++){
 		scanf("%d", &arr[i]);
 	}
+	
+	int n;
+	scanf("%d", &n);
+	
+	for(int i = 0; i < n; i++){
+		int firstVal = arr[0];
 
-	for(int i=n-1; i>=0; i--){
+		for(int j = 1; j < 9; j++){
+			arr[j-1] = arr[j];
+		}
+		arr[8] = firstVal;
+	}
+	
+	for(int i=0; i<9; i++){
 		printf("%d ", arr[i]);
 	}
+	
 	return 0;
 }
 
