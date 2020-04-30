@@ -46,8 +46,8 @@ int main(){
 	
 	int diff = sum - 100;
 	int inv1, inv2;
-	for(int i = 0; i < 9; i++){
-		for(int j = 0; j < 9; j++){
+	for(int i = 0; i < 8; i++){
+		for(int j = i + 1; j < 9; j++){
 			if(diff == arr[i] + arr[j]){
 				inv1 = arr[i];
 				inv2 = arr[j];
@@ -64,7 +64,6 @@ int main(){
 		
 	return 0;
 }
-
 {% endhighlight %}
 
 
