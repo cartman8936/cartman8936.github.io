@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "가장 많이 사용된느 자릿수"
+title:  "가장 많이 사용된 자릿수"
 author: cartman8936
 categories: Algorithm
 tags:	algorithm c++
