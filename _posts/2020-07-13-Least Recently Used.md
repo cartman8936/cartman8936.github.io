@@ -9,6 +9,7 @@ cover:  "/assets/instacode.png"
 
 ### Question
 
+<img src="/assets/posts/2020-07-13-algorithm-LRU.png" title="Explation image">
 
 
 
